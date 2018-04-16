@@ -19,24 +19,36 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    for (int i = 0; i < strlen(key); i++)
+    {
+        if (!isalpha(key[i]))
+        {
+            return 1;
+        }
+    }
     string userInput = get_string("plaintext:");
     int letter;
-    char encryptedMessage[strlen(userInput)];
+    char encryptedMessage[strlen(userInput) + 1];
+    int keyCounter = 0;
     for (int i = 0; i < strlen(userInput); i++)
     {
         if (isupper(userInput[i]))
         {
-            letter = (((userInput[i] - 'A' + atoi(key))) % 26) + 'A';
+            letter = (((userInput[i] - 'A' + (toupper(key[(keyCounter % strlen(key))]) - 'A'))) % 26) + 'A';
+            keyCounter++;
+
         }
         else if (islower(userInput[i]))
         {
-            letter = (((userInput[i] - 'a' + atoi(key))) % 26) + 'a';
+            letter = (((userInput[i] - 'a' + (tolower(key[(keyCounter % strlen(key))]) - 'a'))) % 26) + 'a';
+            keyCounter++;
         }
         else
         {
             letter = userInput[i];
         }
         encryptedMessage[i] = letter;
+        encryptedMessage[i + 1] = '\0';
     }
     printf("ciphertext: %s\n", encryptedMessage);
     return 0;
