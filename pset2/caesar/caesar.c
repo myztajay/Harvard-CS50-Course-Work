@@ -41,3 +41,11 @@ int main(int argc, char *argv[])
     printf("ciphertext: %s\n", encryptedMessage);
     return 0;
 }
+
+// peer review comments
+// ran style50 and saw no issues, looks great!
+// code is clean
+// passed check50
+// I like where you put the atoi() function with modulo - I had my atoi() separate
+// Only sugguestion is to add a few more comments to clarify what each portion of the code does
+// code is clean

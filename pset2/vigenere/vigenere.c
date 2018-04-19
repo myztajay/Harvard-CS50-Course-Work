@@ -26,6 +26,8 @@ int main(int argc, char *argv[])
             return 1;
         }
     }
+
+    // this is where I would put a comment since error checking completed and a new portion has started
     string userInput = get_string("plaintext:");
     int letter;
     char encryptedMessage[strlen(userInput) + 1];
@@ -53,3 +55,10 @@ int main(int argc, char *argv[])
     printf("ciphertext: %s\n", encryptedMessage);
     return 0;
 }
+
+//peer review comments
+// style50 came back good, but recommended more clarifying comments
+// error trapping is effective + error messages are helpful
+// in the error message could tell the user you're looking for a string though
+// the code for iterating through the message and shifting based on the key text is clean and readable
+// most of all it works!
